@@ -57,6 +57,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Configura HSTS (Strict Transport Security)
+SECURE_HSTS_SECONDS = 31536000  # 1 año (en segundos)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Aplica a todos los subdominios
+# Permite que tu dominio sea añadido a la lista de pre-carga HSTS
+SECURE_HSTS_PRELOAD = True
+
+
 ROOT_URLCONF = 'seguridad.urls'
 
 TEMPLATES = [
@@ -143,3 +150,12 @@ CAPTCHA_FONT_SIZE = 30
 CAPTCHA_LENGTH = 6
 CAPTCHA_IMAGE_SIZE = (150, 50)
 CAPTCHA_TIMEOUT = 300  # En segundos
+
+# seguridad de secuentro de sesion
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_AGE = 60  # 1 minuto
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
