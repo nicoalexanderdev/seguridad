@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appseguridad'
+    'appseguridad',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,10 @@ if not DEBUG:
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# captcha custom
+CAPTCHA_FONT_SIZE = 30
+CAPTCHA_LENGTH = 6
+CAPTCHA_IMAGE_SIZE = (150, 50)
+CAPTCHA_TIMEOUT = 300  # En segundos

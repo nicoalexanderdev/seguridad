@@ -1,0 +1,24 @@
+/* Etiquetas del formulario */
+form label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form li {
+    color: red;
+}
+
+form img {
+    margin-bottom: 1rem;
+}
