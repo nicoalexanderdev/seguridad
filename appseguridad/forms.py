@@ -5,7 +5,7 @@ from captcha.fields import CaptchaField
 
 
 class CustomAuthenticationForm(AuthenticationForm):
-    captcha = CaptchaField(label="Confirma que eres humano")
+    captcha = CaptchaField(label="Confirma el captcha")
 
     class Meta:
         fields = ['username', 'password', 'captcha']

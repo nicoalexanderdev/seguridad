@@ -43,20 +43,27 @@ $(document).ready(function () {
             }
         },
         submitHandler: function(form) {
+            // Clave secreta 
+            const encryptionKey = CryptoJS.enc.Utf8.parse('clave_secreta_16'); 
+            const iv = CryptoJS.enc.Utf8.parse('clave_inicial_16');
+
             // Encriptar los datos antes de enviar
             var username = $('#id_username').val();
             var password = $('#id_password').val();
 
             // Encriptar usando CryptoJS
-            var encryptedUsername = CryptoJS.AES.encrypt(username, 'tu_clave_secreta').toString();
-            var encryptedPassword = CryptoJS.AES.encrypt(password, 'tu_clave_secreta').toString();
-            
+            const encryptedUsername = CryptoJS.AES.encrypt(username, encryptionKey, { iv: iv }).toString();
+            const encryptedPassword = CryptoJS.AES.encrypt(password, encryptionKey, { iv: iv }).toString();
 
-            // Reemplazar los valores en el formulario con los encriptados
-            // $('#id_username').val(encryptedUsername);
-            // $('#id_password').val(encryptedPassword);
+            // Limpiar valores originales por seguridad
+            $('#id_username').val('');
+            $('#id_password').val('');
 
-            // Enviar el formulario
+            // Insertar valores encriptados en campos ocultos
+            $('#formularioLogin').append('<input type="hidden" name="encrypted_username" value="' + encryptedUsername + '"/>');
+            $('#formularioLogin').append('<input type="hidden" name="encrypted_password" value="' + encryptedPassword + '"/>');
+
+            // Enviar formulario
             form.submit();
         }
     });
