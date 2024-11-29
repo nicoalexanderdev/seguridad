@@ -1,4 +1,8 @@
 /* Etiquetas del formulario */
+.error{
+    color: red;
+}
+
 form label {
     font-weight: bold;
     color: #333;
@@ -22,3 +26,5 @@ form li {
 form img {
     margin-bottom: 1rem;
 }
+
+

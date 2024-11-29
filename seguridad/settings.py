@@ -149,7 +149,7 @@ SECURE_HSTS_SECONDS = 31536000  # 1 año (en segundos)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Aplica a todos los subdominios
 SECURE_HSTS_PRELOAD = True
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True # cambiar a true para despliegue
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
